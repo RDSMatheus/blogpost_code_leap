@@ -1,9 +1,9 @@
 import styles from './FeedHeader.module.css';
 import logoutIcon from '../../assets/logout-svgrepo-com.svg';
-import { UseData } from '../../Context';
+import { useAuth } from '../../hooks/useAuth';
 
 const FeedHeader = () => {
-  const { logout } = UseData();
+  const { logout } = useAuth();
   return (
     <header className={styles.header}>
       <p>CodeLeap Network</p>{' '}

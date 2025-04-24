@@ -1,9 +1,6 @@
 import React from 'react';
 import styles from './Modal.module.css';
-
-interface ModalProps {
-  isOpen: boolean;
-}
+import { ModalProps } from '../../types/types';
 
 const Modal = ({ isOpen, children }: React.PropsWithChildren<ModalProps>) => {
   if (!isOpen) return null;

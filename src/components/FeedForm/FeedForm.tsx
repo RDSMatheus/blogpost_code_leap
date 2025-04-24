@@ -1,8 +1,10 @@
-import { UseData } from '../../Context';
+import { useAuth } from '../../hooks/useAuth';
+import { usePosts } from '../../hooks/usePosts';
 import Form from '../Form/Form';
 
 const FeedForm = () => {
-  const { postData, state } = UseData();
+  const { createPost } = usePosts();
+  const { state } = useAuth();
 
   return (
     <>
@@ -15,11 +17,10 @@ const FeedForm = () => {
         showCancel={false}
         formTitle="What’s on your mind?"
         handleSubmit={async (title, content) => {
-          return await postData({ title, content, username: state });
+          return await createPost({ title, content, username: state });
         }}
         inputLabel="Title"
         textAreaLabel="Content"
-        
       />
     </>
   );

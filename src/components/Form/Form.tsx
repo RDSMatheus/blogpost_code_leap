@@ -3,25 +3,7 @@ import Input from '../Input/Input';
 import TextArea from '../TextArea/TextArea';
 import Button from '../Button/Button';
 import styles from './Form.module.css';
-
-interface FormProps {
-  formTitle: string;
-  inputLabel: string;
-  textAreaLabel: string;
-  handleSubmit: (title: string, content: string) => Promise<boolean | null>;
-  showCancel: boolean;
-  cancelBtnTxt?: string;
-  btnCancelTxtTransform?: 'capitalize' | 'uppercase' | 'lowercase';
-  btnCancelColor?: '#fff' | '#FF5151' | '#47B960' | '#7695EC';
-  btnCancelBorder?: '#000' | '#FF5151' | '#47B960' | '#7695EC' | '#999999';
-  fontColorCancel?: '#000' | '#fff';
-  confirmBtnTxt: string;
-  btntextTransform: 'capitalize' | 'uppercase' | 'lowercase';
-  buttonColor: '#fff' | '#FF5151' | '#47B960' | '#7695EC';
-  borderColor: '#000' | '#FF5151' | '#47B960' | '#7695EC' | '#999999';
-  fontColor: '#000' | '#fff';
-  closeModal?: () => void;
-}
+import { FormProps } from '../../types/types';
 
 const Form = ({
   formTitle,

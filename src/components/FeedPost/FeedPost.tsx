@@ -1,12 +1,14 @@
 import styles from './FeedPost.module.css';
-import { UseData } from '../../Context';
 import deleteIcon from '../../assets/ic_baseline-delete-forever.svg';
 import editIcon from '../../assets/bx_bx-edit.svg';
+import { usePosts } from '../../hooks/usePosts';
+import { useModal } from '../../hooks/useModal';
+import { useAuth } from '../../hooks/useAuth';
 
 const FeedPost = () => {
-  const { posts, state, deletePost, setOpenEditModal, setEditingPostId } =
-    UseData();
-  console.log(posts);
+  const { posts, deletePost } = usePosts();
+  const { setEditingPostId, setOpenEditModal } = useModal();
+  const { state } = useAuth();
 
   const dateFormat = (date: string) => {
     const currentDate = new Date();

@@ -1,14 +1,8 @@
 import React from 'react';
 import styles from './Button.module.css';
+import { ButtonProps } from '../../types/types';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  values: string[];
-  textTransform: 'capitalize' | 'uppercase' | 'lowercase';
-  buttonColor: '#fff' | '#FF5151' | '#47B960' | '#7695EC';
-  borderColor: '#000' | '#FF5151' | '#47B960' | '#7695EC' | '#999999';
-  fontColor: '#000' | '#fff';
-  close?: () => void;
-}
+
 
 const Button = ({
   children,

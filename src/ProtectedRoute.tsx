@@ -1,9 +1,9 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import { UseData } from './Context';
+import { useAuth } from './hooks/useAuth';
 
 const ProtectedRoute = ({ children }: React.PropsWithChildren) => {
-  const { isLogged } = UseData();
+  const { isLogged } = useAuth();
   console.log(isLogged);
   if (isLogged) {
     return children;

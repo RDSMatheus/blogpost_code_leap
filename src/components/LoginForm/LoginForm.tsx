@@ -3,11 +3,11 @@ import styles from './LoginForm.module.css';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 import { useNavigate } from 'react-router-dom';
-import { UseData } from '../../Context';
+import { useAuth } from '../../hooks/useAuth';
 
 const LoginForm = () => {
   const [name, setName] = React.useState('');
-  const { setState } = UseData();
+  const { setState } = useAuth();
   const navigate = useNavigate();
 
   function handleSubmit(event: React.FormEvent) {

@@ -1,15 +1,5 @@
-import React from 'react';
 import styles from './Input.module.css';
-
-interface InputProps
-  extends Omit<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange'
-  > {
-  value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
-  label: string;
-}
+import { InputProps } from '../../types/types';
 
 const Input = ({ value, setValue, label, ...props }: InputProps) => {
   return (

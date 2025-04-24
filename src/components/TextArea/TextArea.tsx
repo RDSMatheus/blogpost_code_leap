@@ -1,15 +1,5 @@
-import React from 'react';
 import styles from './TextArea.module.css';
-
-interface TextAreaProps
-  extends Omit<
-    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-    'value' | 'onChange'
-  > {
-  value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
-  label: string;
-}
+import { TextAreaProps } from '../../types/types';
 
 const TextArea = ({ label, setValue, value, ...props }: TextAreaProps) => {
   return (

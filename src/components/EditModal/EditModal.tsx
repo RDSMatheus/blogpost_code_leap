@@ -1,10 +1,11 @@
 import Modal from '../Modal/Modal';
-import { UseData } from '../../Context';
 import Form from '../Form/Form';
+import { useModal } from '../../hooks/useModal';
+import { usePosts } from '../../hooks/usePosts';
 
 const EditModal = () => {
-  const { openEditModal, updatePost, editingPostId, setOpenEditModal } =
-    UseData();
+  const { openEditModal, editingPostId, setOpenEditModal } = useModal();
+  const { updatePost } = usePosts();
 
   return (
     <Modal isOpen={openEditModal}>
