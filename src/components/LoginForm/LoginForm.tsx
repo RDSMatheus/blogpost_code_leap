@@ -27,7 +27,13 @@ const LoginForm = () => {
             label="Please enter your username"
             placeholder="Jhon Doe"
           />
-          <Button textTransform="uppercase" values={[name]}>
+          <Button
+            borderColor="#7695EC"
+            fontColor="#fff"
+            buttonColor="#7695EC"
+            textTransform="uppercase"
+            values={[name]}
+          >
             enter
           </Button>
         </form>
