@@ -1,0 +1,14 @@
+.input span{
+  display: block;
+  margin-bottom: 8px;
+}
+
+.input input{
+  display: block;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid var(--text-color-muted);
+  outline: none;
+  width: 100%;
+}

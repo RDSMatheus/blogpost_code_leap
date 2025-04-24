@@ -1,0 +1,10 @@
+.wrapper{
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: var(--text-color-light);
+}
+
+.body{
+  padding: 24px;
+}

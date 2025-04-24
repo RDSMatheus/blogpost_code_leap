@@ -1,0 +1,21 @@
+.header{
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+  font-size: 22px;
+  padding: 27px 37px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header button{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-color-light);
+  font-weight: 700;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
