@@ -8,6 +8,7 @@
   border: none;
   background: linear-gradient(#8DAAFB, #5A7CDB);
   transition: .3s;
+  cursor: pointer;
 }
 
 .scrollBtn:hover{
