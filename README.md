@@ -2,7 +2,7 @@
 
 ## 📋 Sobre o Projeto
 
-Este projeto é uma rede social desenvolvida como parte do desafio técnico para a CodeLeap, construída com React, TypeScript e Vite. A aplicação permite que usuários criem uma conta e compartilhem posts em um feed comum.
+Este projeto é uma rede social desenvolvida como parte do desafio técnico para a CodeLeap, construída com , TypeScript e Vite. A aplicação permite que usuários criem uma conta e compartilhem posts em um feed comum.
 
 ## 🚀 Funcionalidades
 
@@ -16,10 +16,10 @@ Este projeto é uma rede social desenvolvida como parte do desafio técnico para
 
 ## 🛠️ Tecnologias Utilizadas
 
-- React 19
+- 19
 - TypeScript
 - Vite
-- React Router DOM
+- Router DOM
 - CSS Modules
 - Context API
 - ESLint

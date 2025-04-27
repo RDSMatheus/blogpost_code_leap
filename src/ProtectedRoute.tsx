@@ -1,10 +1,10 @@
-import React from 'react';
+import { PropsWithChildren } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from './hooks/useAuth';
 
-const ProtectedRoute = ({ children }: React.PropsWithChildren) => {
+const ProtectedRoute = ({ children }: PropsWithChildren) => {
   const { isLogged } = useAuth();
-  console.log(isLogged);
+
   if (isLogged) {
     return children;
   } else {

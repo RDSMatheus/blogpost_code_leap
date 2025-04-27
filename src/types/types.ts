@@ -1,3 +1,11 @@
+import {
+  ButtonHTMLAttributes,
+  Dispatch,
+  InputHTMLAttributes,
+  SetStateAction,
+  TextareaHTMLAttributes,
+} from 'react';
+
 export interface IPosts {
   count: number;
   next: null;
@@ -14,8 +22,7 @@ export interface IPost {
   created_datetime?: string;
 }
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   values: string[];
   textTransform: 'capitalize' | 'uppercase' | 'lowercase';
   buttonColor: '#fff' | '#FF5151' | '#47B960' | '#7695EC';
@@ -41,15 +48,14 @@ export interface FormProps {
   borderColor: '#000' | '#FF5151' | '#47B960' | '#7695EC' | '#999999';
   fontColor: '#000' | '#fff';
   closeModal?: () => void;
+  titleEdit?: string;
+  contentEdit?: string;
 }
 
 export interface InputProps
-  extends Omit<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange'
-  > {
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> {
   value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
+  setValue: Dispatch<SetStateAction<string>>;
   label: string;
 }
 
@@ -59,10 +65,39 @@ export interface ModalProps {
 
 export interface TextAreaProps
   extends Omit<
-    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+    TextareaHTMLAttributes<HTMLTextAreaElement>,
     'value' | 'onChange'
   > {
   value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
+  setValue: Dispatch<SetStateAction<string>>;
   label: string;
+}
+
+export interface AuthContextType {
+  state: string;
+  setState: Dispatch<SetStateAction<string>>;
+  isLogged: boolean;
+  setIsLogged: Dispatch<SetStateAction<boolean>>;
+  logout: () => void;
+}
+
+export interface ModalContextType {
+  openEditModal: boolean;
+  setOpenEditModal: Dispatch<SetStateAction<boolean>>;
+  editingPostId: number | null;
+  setEditingPostId: Dispatch<SetStateAction<number | null>>;
+  openDeleteModal: boolean;
+  setOpenDeleteModal: Dispatch<SetStateAction<boolean>>;
+  deletePostId: number | null;
+  setDeletePostId: Dispatch<SetStateAction<number | null>>;
+}
+
+export interface PostsContextType {
+  createPost: (body: IPost) => Promise<boolean>;
+  deletePost: (id: number) => Promise<boolean>;
+  updatePost: (id: number, title: string, content: string) => Promise<boolean>;
+  posts: IPosts | null;
+  setPosts: Dispatch<SetStateAction<IPosts | null>>;
+  getPosts: (url?: string) => Promise<void>;
+  loading: boolean;
 }

@@ -22,9 +22,12 @@ export async function postData(body: IPost): Promise<{ response: boolean }> {
   }
 }
 
-export async function getPosts(): Promise<{ response: boolean; data: IPosts }> {
+export async function getData(
+  paginationUrl?: string,
+): Promise<{ response: boolean; data: IPosts }> {
+  const fetchUrl = paginationUrl ? paginationUrl : url;
   try {
-    const response = await fetch(url);
+    const response = await fetch(fetchUrl);
     const data = await response.json();
     return { data, response: response.ok };
   } catch (error) {

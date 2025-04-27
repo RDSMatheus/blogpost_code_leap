@@ -1,11 +1,12 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Login from './pages/Login';
 import Feed from './pages/Feed';
 import ProtectedRoute from './ProtectedRoute';
-import { AuthContext } from './AuthContext';
-import { PostsContext } from './PostsContext';
-import { ModalContext } from './components/ModalContext';
+import { PostsContext } from './components/context/PostsContext';
+import { ModalContext } from './components/context/ModalContext';
+import { AuthContext } from './components/context/AuthContext';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 
 function App() {
   return (
@@ -13,17 +14,20 @@ function App() {
       <AuthContext>
         <PostsContext>
           <ModalContext>
-            <Routes>
-              <Route path="/" element={<Login />} />
-              <Route
-                path="/feed"
-                element={
-                  <ProtectedRoute>
-                    <Feed />
-                  </ProtectedRoute>
-                }
-              />
-            </Routes>
+            <HelmetProvider>
+              <Routes>
+                <Route path="/" element={<Navigate to="/login" />} />
+                <Route path="/login" element={<Login />} />
+                <Route
+                  path="/feed"
+                  element={
+                    <ProtectedRoute>
+                      <Feed />
+                    </ProtectedRoute>
+                  }
+                />
+              </Routes>
+            </HelmetProvider>
           </ModalContext>
         </PostsContext>
       </AuthContext>
