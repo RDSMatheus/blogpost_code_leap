@@ -4,6 +4,13 @@
   margin-bottom: 24px;
 }
 
+.animateNew {
+  transform: translateY(-30px);
+  transition: .3s;
+  opacity: 0;
+  animation: slideIn .3s ease-in forwards;
+}
+
 .header{
   display: flex;
   justify-content: space-between;
@@ -42,4 +49,11 @@
 
 .postHeader span:first-child{
   font-weight: 700;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

@@ -5,7 +5,7 @@ import { usePosts } from '../../../hooks/usePosts';
 import { useModal } from '../../../hooks/useModal';
 import { useAuth } from '../../../hooks/useAuth';
 import useInfiniteScroll from './../../../hooks/useInfiniteScroll';
-
+import { useEffect, useRef, useState } from 'react';
 
 const FeedPost = () => {
   const { posts, getPosts } = usePosts();
@@ -17,10 +17,25 @@ const FeedPost = () => {
   } = useModal();
   const { state } = useAuth();
   const isValidNext = typeof posts?.next === 'string';
-
+  const [flashId, setFlashId] = useState<number | null>(null);
   const ref = useInfiniteScroll(isValidNext, () => {
     if (posts?.next) getPosts(posts.next);
   });
+  const prevFirst = useRef(posts?.results[0].id);
+
+  useEffect(() => {
+    if (!posts) return;
+
+    const currentFirst = posts.results[0].id;
+
+    if (!currentFirst) return;
+
+    if (prevFirst.current && currentFirst !== prevFirst.current) {
+      setFlashId(currentFirst);
+      setTimeout(() => setFlashId(null), 300);
+    }
+    prevFirst.current = currentFirst;
+  }, [posts]);
 
   const dateFormat = (date: string) => {
     const currentDate = new Date();
@@ -47,9 +62,14 @@ const FeedPost = () => {
 
   if (posts) {
     return (
-      <>
+      <section className={styles.feePost}>
         {posts.results.map((post, index) => (
-          <section key={`${post.id} ${index}`} className={styles.post}>
+          <section
+            key={`${post.id} ${index}`}
+            className={`${styles.post} ${
+              post.id === flashId ? styles.animateNew : ''
+            }`}
+          >
             <div className={styles.header}>
               <h3>{post.title}</h3>
               {post.username === state && (
@@ -87,7 +107,7 @@ const FeedPost = () => {
           </section>
         ))}
         <div ref={ref}></div>
-      </>
+      </section>
     );
   }
   return null;

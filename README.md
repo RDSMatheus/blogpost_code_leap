@@ -1,85 +1,111 @@
-# CodeLeap Network - Desafio Técnico
+# CodeLeap Network Challenge
 
-## 📋 Sobre o Projeto
+## 💻 About The Project
 
-Este projeto é uma rede social desenvolvida como parte do desafio técnico para a CodeLeap, construída com , TypeScript e Vite. A aplicação permite que usuários criem uma conta e compartilhem posts em um feed comum.
+Project developed as a technical challenge for CodeLeap, consisting of a social network where users can create, edit and delete posts. The application is available at: [BlogPost CodeLeap](https://blogpost-code-leap.vercel.app/)
 
-## 🚀 Funcionalidades
+## 🛠 Technologies Used
 
-- ✅ Autenticação simplificada com username
-- 📝 Criação de posts
-- 📎 Feed de posts em tempo real
-- ✏️ Edição de posts próprios
-- 🗑️ Exclusão de posts próprios
-- 🔒 Rotas protegidas
-- 📱 Design responsivo
-
-## 🛠️ Tecnologias Utilizadas
-
-- 19
+- React 18
 - TypeScript
+- React Router Dom
+- React Helmet Async
 - Vite
-- Router DOM
-- CSS Modules
-- Context API
-- ESLint
+- LocalStorage
+- Vercel (Deploy)
 
-## 📦 Como Instalar e Executar
+## 🚀 Features
 
-1. Clone o repositório:
+- Username login
+- Complete CRUD for posts
+  - Post creation
+  - Real-time feed reading
+  - Update own posts
+  - Delete own posts
+- Responsive design
+- Form validation
+- User data persistence
+
+## 📦 Installation and Setup
+
+1. Clone the repository:
 
 ```bash
-git clone https://github.com/seu-usuario/codeleap-network.git
-cd codeleap-network
+git clone https://github.com/RDSMatheus/blogpost_code_leap.git
+cd blogpost_code_leap
 ```
 
-2. Instale as dependências:
+2. Install dependencies:
 
 ```bash
 npm install
 ```
 
-3. Execute o projeto:
+3. Available scripts:
 
 ```bash
-npm run dev
+npm run dev      # Start development server
+npm run build    # Generate production build
+npm run lint     # Run code verification
+npm run preview  # Preview production version
 ```
 
-## 🗂️ Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 src/
-├── components/    # Componentes reutilizáveis
-├── context/      # Context API
-├── hooks/        # Hooks customizados
-├── pages/        # Páginas da aplicação
-└── styles/       # Estilos CSS
+├── assets/                # Static files (SVGs, images)
+├── components/
+│   ├── common/           # Reusable base components
+│   │   ├── Button/       # Custom button component
+│   │   ├── Form/         # Form component
+│   │   ├── Input/        # Input component
+│   │   ├── Skeleton/     # Loading component
+│   │   └── TextArea/     # Text area component
+│   ├── context/          # Application contexts
+│   │   ├── AuthContext   # Authentication context
+│   │   ├── ModalContext  # Modal context
+│   │   └── PostsContext  # Posts context
+│   ├── feed/             # Feed specific components
+│   │   ├── FeedHeader/   # Feed header
+│   │   ├── FeedPost/     # Post component
+│   │   └── FeedWrapper/  # Feed container
+│   ├── forms/            # Application forms
+│   ├── Modal/            # Base modal component
+│   └── modals/           # Specific modals
+├── hooks/                # Custom hooks
+├── pages/                # Application pages
+├── services/            # Services and API calls
+└── types/               # TypeScript types
 ```
 
-## 🔌 Endpoints da API
+The project structure is organized in a modular way, separating responsibilities:
 
-- GET /careers/ - Lista todos os posts
-- POST /careers/ - Cria novo post
-- PATCH /careers/:id/ - Atualiza post existente
-- DELETE /careers/:id/ - Remove post
+- Reusable components in `common/`
+- State management contexts in `context/`
+- Feed specific components in `feed/`
+- Custom hooks for reusable logic
+- Services for API communication
+- Centralized types in `types/`
 
-## 📝 Scripts Disponíveis
+## ⚙️ Configuration
 
-- `npm run dev` - Inicia servidor de desenvolvimento
-- `npm run build` - Gera build de produção
-- `npm run lint` - Executa verificação de código
-- `npm run preview` - Visualiza versão de produção
-
-## ⚙️ Requisitos do Sistema
+The project uses the following main dependency versions:
 
 - Node.js 16+
-- NPM ou Yarn
-- Navegador moderno
+- npm or yarn
+- Modern browsers with ES6+ support
 
-## 📄 Licença
+## 🔌 API Endpoints
 
-Este projeto é parte de um desafio técnico e não deve ser utilizado para fins comerciais.
+The application consumes the CodeLeap API through the endpoints:
 
----
+- `GET /careers/` - List posts
+- `POST /careers/` - Create post
+- `PATCH /careers/:id/` - Update post
+- `DELETE /careers/:id/` - Remove post
 
-Desenvolvido com 💙 como parte do processo seletivo da CodeLeap
+## 🌐 Important Links
+
+- [Live Application](https://blogpost-code-leap.vercel.app/)
+
