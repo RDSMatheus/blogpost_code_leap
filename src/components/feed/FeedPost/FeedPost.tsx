@@ -21,10 +21,10 @@ const FeedPost = () => {
   const ref = useInfiniteScroll(isValidNext, () => {
     if (posts?.next) getPosts(posts.next);
   });
-  const prevFirst = useRef(posts?.results[0].id);
+  const prevFirst = useRef(posts?.results[0]?.id);
 
   useEffect(() => {
-    if (!posts) return;
+    if (!posts || posts.results.length === 0) return;
 
     const currentFirst = posts.results[0].id;
 
